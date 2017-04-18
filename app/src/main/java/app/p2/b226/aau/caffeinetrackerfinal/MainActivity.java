@@ -71,6 +71,12 @@ public class MainActivity extends AppCompatActivity {
         Toast.makeText(this, theUser.name, Toast.LENGTH_LONG).show();
     }
 
+    public void updateUser(String name, int goal, boolean isSmoking){
+        theUser.setName(name);
+        theUser.setGoalInMg(goal);
+        theUser.setSmoker(isSmoking);
+    }
+
 
 }
 
