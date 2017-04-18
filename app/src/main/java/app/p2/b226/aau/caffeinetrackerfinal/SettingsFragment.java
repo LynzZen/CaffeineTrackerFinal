@@ -48,9 +48,10 @@ public class SettingsFragment extends Fragment {
             String name = (String) nameField.getText().toString();
             boolean isSmoking = isSmokingField.isChecked();
             int goal = Integer.parseInt( goalInMg.getText().toString());
-            ((MainActivity)getActivity()).createUser(name);
 
-            Toast.makeText(getActivity(), name + " " + isSmoking + " " + goal + "mg", Toast.LENGTH_LONG).show();
+            ((MainActivity)getActivity()).updateUser(name,goal,isSmoking);
+
+            Toast.makeText(getActivity(), "Updated", Toast.LENGTH_SHORT).show();
         }
 
     };

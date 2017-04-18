@@ -12,6 +12,9 @@ import android.widget.TextView;
 
 public class MainFragment extends Fragment {
 
+    TextView theTextView;
+    Button theButton;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -23,6 +26,15 @@ public class MainFragment extends Fragment {
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
+        theTextView = (TextView) view.findViewById(R.id.Heine);
+        theButton = (Button) view.findViewById(R.id.theButton);
+        theButton.setOnClickListener(mListener);
     }
+
+    View.OnClickListener mListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            theTextView.setText(((MainActivity)getActivity()).theUser.getName());
+        }
+    };
 }
