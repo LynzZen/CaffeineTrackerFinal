@@ -34,11 +34,11 @@ public class MainActivity extends AppCompatActivity {
                     return true;
 
                 case R.id.navigation_notifications:
-                    changingFragment(new SettingsFragment());
+                    changingFragment(new MainFragment());
                     return true;
 
                 case R.id.navigation_other:
-                    changingFragment(new MainFragment());
+                    changingFragment(new SettingsFragment());
                     return true;
             }
             return false;
