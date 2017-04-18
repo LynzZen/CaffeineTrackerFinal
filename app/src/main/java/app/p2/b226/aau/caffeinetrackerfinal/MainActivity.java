@@ -1,6 +1,6 @@
 package app.p2.b226.aau.caffeinetrackerfinal;
 
-
+import android.content.Intent;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
@@ -66,8 +66,9 @@ public class MainActivity extends AppCompatActivity {
         ft.commit();
     }
 
-    public void createUser(String name){
-        theUser = new User(name,200,true);
+    public void createUser(String name, int goal, boolean isSmoking){
+        theUser = new User(name,goal,isSmoking);
+
         Toast.makeText(this, theUser.name, Toast.LENGTH_LONG).show();
     }
 
