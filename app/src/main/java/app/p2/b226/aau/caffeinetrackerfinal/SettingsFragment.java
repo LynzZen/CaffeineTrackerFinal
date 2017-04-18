@@ -58,7 +58,7 @@ public class SettingsFragment extends Fragment {
         goalInMg = (EditText) view.findViewById(R.id.GoalInMgField);
         saveButton = (Button) view.findViewById(R.id.Savebutton);
         saveButton.setOnClickListener(mListener);
-
+        saveButton.setText("Update");
 
         nameField.setText((CharSequence) name);
         String goalString = Integer.toString(goal);
