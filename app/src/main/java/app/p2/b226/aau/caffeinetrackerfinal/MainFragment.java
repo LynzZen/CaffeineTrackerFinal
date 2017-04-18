@@ -34,7 +34,7 @@ public class MainFragment extends Fragment {
     View.OnClickListener mListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            theTextView.setText(((MainActivity)getActivity()).theUser.getName());
+            theTextView.setText(((MainActivity)getActivity()).TheUser.getName());
         }
     };
 }

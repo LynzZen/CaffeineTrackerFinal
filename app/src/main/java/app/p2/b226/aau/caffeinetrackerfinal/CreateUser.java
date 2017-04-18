@@ -4,9 +4,12 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Toast;
+
+import java.io.Serializable;
 
 public class CreateUser extends AppCompatActivity {
-
+    User theUser;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -15,8 +18,16 @@ public class CreateUser extends AppCompatActivity {
 
     public void Enter(View view){
 
+        createUser("hej",10,true);
 
         Intent intent = new Intent(this, MainActivity.class);
+        intent.putExtra("Auser", theUser);
         startActivity(intent);
+    }
+    public void createUser(String name, int goal, boolean isSmoking){
+
+        theUser = new User(name,goal,isSmoking);
+
+        Toast.makeText(this, theUser.name, Toast.LENGTH_LONG).show();
     }
 }

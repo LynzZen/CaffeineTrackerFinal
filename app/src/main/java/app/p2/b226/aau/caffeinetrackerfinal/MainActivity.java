@@ -17,7 +17,7 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
-    User theUser;
+    User TheUser;
     String userName = "";
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -51,6 +51,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        Intent i = getIntent();
+        TheUser = i.getSerializableExtra("Auser");
 
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
@@ -66,16 +68,12 @@ public class MainActivity extends AppCompatActivity {
         ft.commit();
     }
 
-    public void createUser(String name, int goal, boolean isSmoking){
-        theUser = new User(name,goal,isSmoking);
 
-        Toast.makeText(this, theUser.name, Toast.LENGTH_LONG).show();
-    }
 
     public void updateUser(String name, int goal, boolean isSmoking){
-        theUser.setName(name);
-        theUser.setGoalInMg(goal);
-        theUser.setSmoker(isSmoking);
+        TheUser.setName(name);
+        TheUser.setGoalInMg(goal);
+        TheUser.setSmoker(isSmoking);
     }
 
 
