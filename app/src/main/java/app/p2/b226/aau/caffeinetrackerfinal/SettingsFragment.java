@@ -59,7 +59,7 @@ public class SettingsFragment extends Fragment {
         saveButton = (Button) view.findViewById(R.id.Savebutton);
         saveButton.setOnClickListener(mListener);
 
-        /*
+
         nameField.setText((CharSequence) name);
         String goalString = Integer.toString(goal);
         goalInMg.setText(goalString);
@@ -69,7 +69,7 @@ public class SettingsFragment extends Fragment {
         } else {
             isSmokingField.setChecked(false);
         }
-*/
+
 
     }
 
