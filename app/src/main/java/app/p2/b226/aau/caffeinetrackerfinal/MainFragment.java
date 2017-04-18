@@ -34,7 +34,17 @@ public class MainFragment extends Fragment {
     View.OnClickListener mListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            theTextView.setText(((MainActivity)getActivity()).TheUser.getName());
+            String theName = ((MainActivity)getActivity()).TheUser.getName();
+            int goal = ((MainActivity)getActivity()).TheUser.getGoalInMg();
+            boolean isSmoking = ((MainActivity)getActivity()).TheUser.isSmoker();
+            String tempTxt;
+            if (isSmoking){
+                tempTxt = "is smoking";
+            } else {
+                tempTxt = "is not smoking";
+            }
+
+            theTextView.setText("Name: " + theName + ". Goal: " + goal + ". " + tempTxt);
         }
     };
 }
