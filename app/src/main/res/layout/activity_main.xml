@@ -23,7 +23,6 @@
             android:name="app.p2.b226.aau.caffeinetrackerfinal.SettingsFragment"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-
             android:layout_weight="0.33"></fragment>
 
     </FrameLayout>
