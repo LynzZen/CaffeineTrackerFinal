@@ -17,6 +17,8 @@ import android.widget.Toast;
 
 import org.w3c.dom.Text;
 
+import java.util.Set;
+
 
 public class SettingsFragment extends Fragment {
 
@@ -25,12 +27,27 @@ public class SettingsFragment extends Fragment {
     Switch isSmokingField;
     EditText goalInMg;
 
+    int goal;
+    String name;
+    boolean smoke;
+
+    //Default Constructor
+    public SettingsFragment(){
+
+    }
+
+    public SettingsFragment(int goal, String name, boolean smoke){
+        this.goal = goal;
+        this.name = name;
+        this.smoke = smoke;
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_settings, container, false);
+
     }
 
     @Override
@@ -41,6 +58,19 @@ public class SettingsFragment extends Fragment {
         goalInMg = (EditText) view.findViewById(R.id.GoalInMgField);
         saveButton = (Button) view.findViewById(R.id.Savebutton);
         saveButton.setOnClickListener(mListener);
+
+        /*
+        nameField.setText((CharSequence) name);
+        String goalString = Integer.toString(goal);
+        goalInMg.setText(goalString);
+
+        if(smoke){
+            isSmokingField.setChecked(true);
+        } else {
+            isSmokingField.setChecked(false);
+        }
+*/
+
     }
 
     View.OnClickListener mListener = new View.OnClickListener(){

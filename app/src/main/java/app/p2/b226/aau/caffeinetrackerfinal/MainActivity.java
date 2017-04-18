@@ -38,7 +38,11 @@ public class MainActivity extends AppCompatActivity {
                     return true;
 
                 case R.id.navigation_other:
-                    changingFragment(new SettingsFragment());
+                    String name = TheUser.getName();
+                    int goal = TheUser.getGoalInMg();
+                    boolean smoke = TheUser.isSmoker();
+                    changingFragment(new SettingsFragment(goal,name,smoke));
+
                     return true;
             }
             return false;
