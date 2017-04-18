@@ -13,6 +13,8 @@ public class Information {
         Quotes[0] = "Hello you should not drink so much coffee";
         Quotes[1] = "What are you doing put that cup of coffee down";
         Quotes[2] = "Coffee makes you fart";
+        Quotes[3] = "Do you trust your farts today?";
+
         return Quotes[i];
     }
 }
