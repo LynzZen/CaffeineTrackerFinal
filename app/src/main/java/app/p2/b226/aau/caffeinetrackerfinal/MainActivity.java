@@ -55,6 +55,7 @@ public class MainActivity extends AppCompatActivity {
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
         changingFragment(new MainFragment());
+
     }
 
     public void changingFragment(Fragment frag){

@@ -5,6 +5,5 @@
              android:background="@color/colorPrimary"
     tools:context="app.p2.b226.aau.caffeinetrackerfinal.VisualizationFragment">
 
-    <!-- TODO: Update blank fragment layout -->
 
 </RelativeLayout>
