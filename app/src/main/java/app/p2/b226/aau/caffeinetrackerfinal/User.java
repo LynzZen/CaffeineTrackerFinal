@@ -1,6 +1,8 @@
 package app.p2.b226.aau.caffeinetrackerfinal;
 
-public class User {
+import java.io.Serializable;
+
+public class User implements Serializable {
     String name;
 
     public String getName() {

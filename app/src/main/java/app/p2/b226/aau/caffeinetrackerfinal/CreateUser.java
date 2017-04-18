@@ -20,14 +20,18 @@ public class CreateUser extends AppCompatActivity {
 
         createUser("hej",10,true);
 
+        Bundle bundle = new Bundle();
+        bundle.putSerializable("Auser", theUser);
+
         Intent intent = new Intent(this, MainActivity.class);
-        intent.putExtra("Auser", theUser);
+        intent.putExtras(bundle);
+
         startActivity(intent);
     }
+
+
     public void createUser(String name, int goal, boolean isSmoking){
-
         theUser = new User(name,goal,isSmoking);
-
         Toast.makeText(this, theUser.name, Toast.LENGTH_LONG).show();
     }
 }

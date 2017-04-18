@@ -51,8 +51,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Intent i = getIntent();
-        TheUser = i.getSerializableExtra("Auser");
+        Intent intent = this.getIntent();
+        Bundle bundle = intent.getExtras();
+        TheUser = (User) bundle.getSerializable("Auser");
 
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
