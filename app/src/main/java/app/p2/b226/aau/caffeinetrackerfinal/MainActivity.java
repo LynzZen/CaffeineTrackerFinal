@@ -13,10 +13,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
-
+    User theUser;
+    String userName = "";
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
 
@@ -61,6 +63,11 @@ public class MainActivity extends AppCompatActivity {
         ft.add(R.id.content, frag);
         ft.addToBackStack(null);
         ft.commit();
+    }
+
+    public void createUser(String name){
+        theUser = new User(name,200,true);
+        Toast.makeText(this, theUser.name, Toast.LENGTH_LONG).show();
     }
 
 
