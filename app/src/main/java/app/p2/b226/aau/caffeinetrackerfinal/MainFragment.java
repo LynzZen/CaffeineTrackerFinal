@@ -49,7 +49,9 @@ public class MainFragment extends Fragment {
                 //theTextView.setText("The Goal is: " + goalInCups + " cups, and the amount of caffeine in your system is: "
                  //      + theUser.getCaffeineInSystem()+ ", which is equlivant to: " +
                    //     Math.round(theUser.getCaffeineInSystem()/theUser.getDefaultCup()) + " cups");
-                MainVisualizationView.i += 100;
+
+                //Adds to the CaffeineIntaken value in MainVisualizationView
+                MainVisualizationView.CaffeineIntaken += theUser.getDefaultCup();
 
             }
         });
