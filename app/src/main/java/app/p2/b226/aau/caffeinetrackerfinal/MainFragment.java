@@ -33,7 +33,7 @@ public class MainFragment extends Fragment {
 
 
     @Override
-    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+    public void onViewCreated(final View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         //theTextView = (TextView) view.findViewById(R.id.display_caffeine);
         //theTextView.setText(theUser.getCaffeineInSystem()+"");
@@ -43,9 +43,11 @@ public class MainFragment extends Fragment {
             public void onClick(View v) {
                 theUser.setCaffeineInSystem(theUser.getCaffeineInSystem()+theUser.getDefaultCup());
                 int goalInCups = Math.round(theUser.getGoalInMg()/theUser.getDefaultCup());
-                theTextView.setText("The Goal is: " + goalInCups + " cups, and the amount of caffeine in your system is: "
-                       + theUser.getCaffeineInSystem()+ ", which is equlivant to: " +
-                        Math.round(theUser.getCaffeineInSystem()/theUser.getDefaultCup()) + " cups");
+                //theTextView.setText("The Goal is: " + goalInCups + " cups, and the amount of caffeine in your system is: "
+                 //      + theUser.getCaffeineInSystem()+ ", which is equlivant to: " +
+                   //     Math.round(theUser.getCaffeineInSystem()/theUser.getDefaultCup()) + " cups");
+                MainVisualizationView.i += 100;
+
             }
         });
 
