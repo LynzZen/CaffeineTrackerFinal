@@ -84,6 +84,11 @@ public class MainActivity extends AppCompatActivity {
         TheUser.setDefaultCup(defaultCup);
     }
 
+    public void updateVisualization(){
+        MainVisualizationView.CaffeineIntaken += TheUser.getDefaultCup();
+        MainVisualizationView.CaffeineGoal = TheUser.getGoalInMg();
+    }
+
 
 }
 

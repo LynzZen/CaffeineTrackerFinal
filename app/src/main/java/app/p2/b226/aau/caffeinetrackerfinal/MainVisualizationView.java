@@ -18,6 +18,7 @@ public class MainVisualizationView extends View {
 
     RectF rectF;
     static int CaffeineIntaken;
+    static int CaffeineGoal;
     static float CupDegrees;
 
 
@@ -54,8 +55,8 @@ public class MainVisualizationView extends View {
     public void onDraw(Canvas canvas){
         super.onDraw(canvas);
         //This caluculates the factor between milligrams and degress
-        //The 600 here should be the goal at some point to make it work right.
-        double Factor = (double)203/(double)600;
+
+        double Factor = (double)203/(double)CaffeineGoal;
         CupDegrees = (float)(Factor*CaffeineIntaken);
 
         //Draws the circles and arc

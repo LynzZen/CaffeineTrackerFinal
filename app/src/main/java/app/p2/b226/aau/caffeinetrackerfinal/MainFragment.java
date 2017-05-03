@@ -52,6 +52,7 @@ public class MainFragment extends Fragment {
 
                 //Adds to the CaffeineIntaken value in MainVisualizationView
                 MainVisualizationView.CaffeineIntaken += theUser.getDefaultCup();
+                MainVisualizationView.CaffeineGoal = theUser.getGoalInMg();
 
             }
         });
