@@ -35,8 +35,8 @@ public class MainFragment extends Fragment {
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        theTextView = (TextView) view.findViewById(R.id.display_caffeine);
-        theTextView.setText(theUser.getCaffeineInSystem()+"");
+        //theTextView = (TextView) view.findViewById(R.id.display_caffeine);
+        //theTextView.setText(theUser.getCaffeineInSystem()+"");
         theButton = (Button) view.findViewById(R.id.add_cup);
         theButton.setOnClickListener(new View.OnClickListener() {
             @Override
