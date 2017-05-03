@@ -34,16 +34,23 @@ public class MainFragment extends Fragment {
 
 
     @Override
-    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+    public void onViewCreated(final View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        theTextView = (TextView) view.findViewById(R.id.display_caffeine);
-        theTextView.setText(theUser.getCaffeineInSystem()+"");
+        //theTextView = (TextView) view.findViewById(R.id.display_caffeine);
+        //theTextView.setText(theUser.getCaffeineInSystem()+"");
         theButton = (Button) view.findViewById(R.id.add_cup);
         theButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(getActivity(),Dated.class);
                 startActivity(i);
+                theUser.setCaffeineInSystem(theUser.getCaffeineInSystem()+theUser.getDefaultCup());
+                int goalInCups = Math.round(theUser.getGoalInMg()/theUser.getDefaultCup());
+                //theTextView.setText("The Goal is: " + goalInCups + " cups, and the amount of caffeine in your system is: "
+                 //      + theUser.getCaffeineInSystem()+ ", which is equlivant to: " +
+                   //     Math.round(theUser.getCaffeineInSystem()/theUser.getDefaultCup()) + " cups");
+                MainVisualizationView.i += 100;
+
             }
         });
 
