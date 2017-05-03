@@ -4,6 +4,28 @@ import java.io.Serializable;
 
 public class User implements Serializable {
     String name;
+    int goal;
+    boolean isSmoker;
+    int defaultCup;
+
+    int mgInPersonalCup;
+    int caffeineInSystem;
+
+    public User(String name, int goalInMg, boolean isSmoker, int defaultCup) {
+        this.name = name;
+        this.goal = goalInMg;
+        this.isSmoker = isSmoker;
+        this.defaultCup = defaultCup;
+
+    }
+
+    public int getDefaultCup() {
+        return defaultCup;
+    }
+
+    public void setDefaultCup(int defaultCup) {
+        this.defaultCup = defaultCup;
+    }
 
     public String getName() {
         return name;
@@ -14,11 +36,11 @@ public class User implements Serializable {
     }
 
     public int getGoalInMg() {
-        return goalInMg;
+        return goal;
     }
 
     public void setGoalInMg(int goalInMg) {
-        this.goalInMg = goalInMg;
+        this.goal = goalInMg;
     }
 
     public boolean isSmoker() {
@@ -29,14 +51,7 @@ public class User implements Serializable {
         isSmoker = smoker;
     }
 
-    int goalInMg;
-    boolean isSmoker;
 
-    public User(String name, int goalInMg, boolean isSmoker) {
-        this.name = name;
-        this.goalInMg = goalInMg;
-        this.isSmoker = isSmoker;
-    }
 }
 
 

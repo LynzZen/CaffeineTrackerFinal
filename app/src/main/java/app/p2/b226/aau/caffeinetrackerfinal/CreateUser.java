@@ -18,6 +18,7 @@ public class CreateUser extends AppCompatActivity {
     Switch smokeSwitch;
     EditText goal;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,7 +27,6 @@ public class CreateUser extends AppCompatActivity {
         nameEdit = (EditText) findViewById(R.id.EditName);
         goal = (EditText) findViewById(R.id.goalEdit);
         smokeSwitch = (Switch) findViewById(R.id.SmokingSwitch);
-
     }
 
 
@@ -34,10 +34,10 @@ public class CreateUser extends AppCompatActivity {
     public void Enter(View view){
 
         String name = nameEdit.getText().toString();
-        int goalinMg = Integer.parseInt(goal.getText().toString());
+        int goalMg = Integer.parseInt(goal.getText().toString());
         boolean isSmoking = smokeSwitch.isChecked();
 
-        createUser(name,goalinMg,isSmoking);
+        createUser(name,goalMg,isSmoking);
 
         Bundle bundle = new Bundle();
         bundle.putSerializable("Auser", theUser);
@@ -48,7 +48,7 @@ public class CreateUser extends AppCompatActivity {
 
 
     public void createUser(String name, int goal, boolean isSmoking){
-        theUser = new User(name,goal,isSmoking);
-        Toast.makeText(this, theUser.name, Toast.LENGTH_LONG).show();
+        theUser = new User(name,goal,isSmoking, 200);
+       // Toast.makeText(this, theUser.getGoalInMg()+"", Toast.LENGTH_LONG).show();
     }
 }

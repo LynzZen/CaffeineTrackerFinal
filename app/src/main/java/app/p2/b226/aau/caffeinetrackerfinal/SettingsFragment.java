@@ -5,12 +5,14 @@ import android.icu.text.TimeZoneNames;
 import android.net.Uri;
 import android.os.Bundle;
 import android.app.Fragment;
+import android.support.annotation.InterpolatorRes;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RadioButton;
 import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -19,27 +21,37 @@ import org.w3c.dom.Text;
 
 import java.util.Set;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
+
 
 public class SettingsFragment extends Fragment {
 
-    Button saveButton;
-    EditText nameField;
-    Switch isSmokingField;
-    EditText goalInMg;
+    EditText nameEdit;
+    RadioButton smokingYes;
+    RadioButton smokingNo;
+    EditText defaultCupEdit;
+    EditText goalEdit;
+    Button updateButton;
 
-    int goal;
+
+    int defaultCup;
     String name;
     boolean smoke;
+    int goal;
+
 
     //Default Constructor
     public SettingsFragment(){
 
     }
 
-    public SettingsFragment(int goal, String name, boolean smoke){
-        this.goal = goal;
+    public SettingsFragment(String name, boolean smoke,int goal, int defaultCup){
         this.name = name;
         this.smoke = smoke;
+        this.goal = goal;
+        this.defaultCup = defaultCup;
     }
 
     @Override
@@ -53,38 +65,52 @@ public class SettingsFragment extends Fragment {
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        nameField = (EditText) view.findViewById(R.id.NameType);
-        isSmokingField = (Switch) view.findViewById(R.id.SmokingSwitch);
-        goalInMg = (EditText) view.findViewById(R.id.GoalInMgField);
-        saveButton = (Button) view.findViewById(R.id.Savebutton);
-        saveButton.setOnClickListener(mListener);
-        saveButton.setText("Update");
 
-        nameField.setText((CharSequence) name);
-        String goalString = Integer.toString(goal);
-        goalInMg.setText(goalString);
+        nameEdit = (EditText) view.findViewById(R.id.name_edit);
+        smokingYes = (RadioButton) view.findViewById(R.id.smoking_yes);
+        smokingNo = (RadioButton) view.findViewById(R.id.smoking_no);
+        updateButton = (Button) view.findViewById(R.id.update_button);
+        goalEdit = (EditText) view.findViewById(R.id.goal_edit);
+        defaultCupEdit = (EditText) view.findViewById(R.id.cup_size_edit);
 
-        if(smoke){
-            isSmokingField.setChecked(true);
+        goalEdit.setText(Integer.toString(goal));
+        nameEdit.setText((CharSequence) name);
+        defaultCupEdit.setText(Integer.toString(defaultCup));
+        if (smoke){
+            smokingYes.setChecked(true);
+            smokingNo.setChecked(false);
         } else {
-            isSmokingField.setChecked(false);
+            smokingYes.setChecked(false);
+            smokingNo.setChecked(true);
         }
 
+        smokingYes.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                smoke = true;
+                smokingNo.setChecked(false);
+            }
+        });
+        smokingNo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                smoke = false;
+                smokingYes.setChecked(false);
+            }
+        });
+
+        updateButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String newName = nameEdit.getText().toString();
+                int newDefaultCup = Integer.parseInt(defaultCupEdit.getText().toString());
+                int newGoal = Integer.parseInt(goalEdit.getText().toString());
+
+                ((MainActivity)getActivity()).updateUser(newName,smoke,newGoal,defaultCup);
+                Toast.makeText(getActivity(), "User Updated!", Toast.LENGTH_SHORT).show();
+            }
+        });
 
     }
-
-    View.OnClickListener mListener = new View.OnClickListener(){
-        public void onClick(View v){
-            String name = (String) nameField.getText().toString();
-            boolean isSmoking = isSmokingField.isChecked();
-            int goal = Integer.parseInt( goalInMg.getText().toString());
-
-            ((MainActivity)getActivity()).updateUser(name,goal,isSmoking);
-
-            Toast.makeText(getActivity(), "Updated", Toast.LENGTH_SHORT).show();
-        }
-
-    };
-
 
 }

@@ -1,119 +1,165 @@
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
                                              xmlns:app="http://schemas.android.com/apk/res-auto"
                                              xmlns:tools="http://schemas.android.com/tools"
                                              android:layout_width="fill_parent"
                                              android:layout_height="match_parent"
-
-                                             android:background="@color/colorAccent"
+                                             android:padding="20dp"
+                                             android:background="@android:color/white"
                                              tools:context="app.p2.b226.aau.caffeinetrackerfinal.SettingsFragment"
+                                             tools:layout_editor_absoluteX="0dp"
                                              tools:layout_editor_absoluteY="25dp"
-                                             tools:layout_editor_absoluteX="0dp">
+                android:clickable="true">
 
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="@color/colorPrimary"
         android:text="Settings"
-        android:layout_marginStart="16dp"
-        tools:layout_constraintTop_creator="1"
-        android:layout_marginTop="16dp"
-        tools:layout_constraintLeft_creator="1"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginLeft="16dp"/>
+        android:textColor="@color/colorPrimary"
+        tools:layout_editor_absoluteY="36dp"
+        tools:layout_editor_absoluteX="36dp"/>
 
-    <TextView
-        android:id="@+id/NameTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="30dp"
-        android:height="20sp"
-        android:text="Name:"
-        android:textAppearance="@style/TextAppearance.AppCompat.Notification"
-        android:textSize="20sp"
-        android:layout_marginStart="26dp"
-        app:layout_constraintBaseline_toBaselineOf="@+id/NameType"
-        tools:layout_constraintBaseline_creator="1"
-        tools:layout_constraintLeft_creator="1"
-        app:layout_constraintLeft_toLeftOf="parent"
-        android:layout_marginLeft="26dp"/>
+    <LinearLayout
+        android:id="@+id/linearLayout3"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/lightGrey"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:layout_marginTop="55dp"
+        android:layout_below="@+id/textView"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
 
-    <EditText
-        android:id="@+id/NameType"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="20sp"
-        android:ems="10"
-        android:height="20sp"
-        android:hint="name"
-        android:inputType="textPersonName"
-        android:layout_marginEnd="25dp"
-        tools:layout_constraintTop_creator="1"
-        tools:layout_constraintRight_creator="1"
-        app:layout_constraintRight_toRightOf="parent"
-        android:layout_marginTop="93dp"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginRight="25dp"/>
+        <TextView
+            android:id="@+id/name_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Name:"/>
 
-    <Switch
-        android:id="@+id/SmokingSwitch"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="20sp"
-        android:width="170dp"
-        android:switchTextAppearance="@style/TextAppearance.AppCompat.Body2"
-        android:text="Smoking"
-        tools:layout_constraintTop_creator="1"
-        android:layout_marginStart="22dp"
-        android:layout_marginTop="43dp"
-        app:layout_constraintTop_toBottomOf="@+id/NameType"
-        tools:layout_constraintLeft_creator="1"
-        app:layout_constraintLeft_toRightOf="@+id/NameTextView"
-        android:layout_marginLeft="22dp"/>
+        <EditText
+            android:id="@+id/name_edit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text="Name"/>
 
-    <EditText
-        android:id="@+id/GoalInMgField"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="200"
-        android:inputType="number"
-        tools:layout_constraintTop_creator="1"
-        tools:layout_constraintRight_creator="1"
-        tools:layout_constraintBottom_creator="1"
-        app:layout_constraintBottom_toTopOf="@+id/Savebutton"
-        android:layout_marginEnd="16dp"
-        app:layout_constraintRight_toRightOf="parent"
-        android:layout_marginTop="94dp"
-        android:layout_marginBottom="94dp"
-        app:layout_constraintTop_toTopOf="@+id/SmokingSwitch"
-        android:layout_marginRight="16dp"/>
+    </LinearLayout>
 
-    <TextView
-        android:id="@+id/textView4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Goal In Mg:"
-        android:textSize="20sp"
-        tools:layout_constraintBottom_creator="1"
-        android:layout_marginStart="26dp"
-        app:layout_constraintBottom_toBottomOf="@+id/GoalInMgField"
-        tools:layout_constraintLeft_creator="1"
-        app:layout_constraintLeft_toLeftOf="parent"
-        android:layout_marginLeft="26dp"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/linearLayout3"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:id="@+id/linearLayout5">
+
+        <TextView
+            android:id="@+id/smoking_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Smoking"/>
+
+        <RadioButton
+            android:id="@+id/smoking_yes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5"
+            android:text="Yes"/>
+
+        <RadioButton
+            android:id="@+id/smoking_no"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5"
+            android:text="No"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/linearLayout5"
+        android:layout_weight="1"
+        android:background="@color/lightGrey"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:id="@+id/linearLayout6">
+
+        <TextView
+            android:id="@+id/cup_size_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Default Cup Size (in mg)"/>
+
+        <EditText
+            android:id="@+id/cup_size_edit"
+            android:layout_width="10dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="30"
+            android:ems="10"
+            android:gravity="center"
+            android:hint="20"
+            android:inputType="number"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/linearLayout6"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:id="@+id/linearLayout7">
+
+        <TextView
+            android:id="@+id/goal_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Goal (in cups)"/>
+
+        <EditText
+            android:id="@+id/goal_edit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.1"
+            android:ems="10"
+            android:gravity="center"
+            android:hint="6"
+            android:inputType="number"/>
+
+    </LinearLayout>
 
     <Button
-        android:id="@+id/Savebutton"
+        android:id="@+id/update_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Save"
-        tools:layout_constraintRight_creator="1"
-        tools:layout_constraintBottom_creator="1"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        tools:layout_constraintLeft_creator="1"
-        android:layout_marginBottom="107dp"
-        app:layout_constraintLeft_toLeftOf="parent"/>
+        android:fontFamily="sans-serif"
+        android:layout_below="@+id/linearLayout7"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="25dp"
+        android:text="Update"
+        android:textAllCaps="false"/>
 
-</android.support.constraint.ConstraintLayout>
+</RelativeLayout>

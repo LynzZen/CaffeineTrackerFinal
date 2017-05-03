@@ -18,5 +18,4 @@ public class InformationFragment extends Fragment {
         return inflater.inflate(R.layout.fragment_information, container, false);
     }
 
-
 }

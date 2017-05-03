@@ -40,9 +40,9 @@ public class MainActivity extends AppCompatActivity {
                 case R.id.navigation_other:
                     String name = TheUser.getName();
                     int goal = TheUser.getGoalInMg();
+                    int defaultCup = TheUser.getDefaultCup();
                     boolean smoke = TheUser.isSmoker();
-                    changingFragment(new SettingsFragment(goal,name,smoke));
-
+                    changingFragment(new SettingsFragment(name,smoke,goal,defaultCup));
                     return true;
             }
             return false;
@@ -58,7 +58,6 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = this.getIntent();
         Bundle bundle = intent.getExtras();
         TheUser = (User) bundle.getSerializable("Auser");
-
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
         changingFragment(new MainFragment());
@@ -75,10 +74,11 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-    public void updateUser(String name, int goal, boolean isSmoking){
+    public void updateUser(String name, boolean isSmoking, int goal, int defaultCup){
         TheUser.setName(name);
         TheUser.setGoalInMg(goal);
         TheUser.setSmoker(isSmoking);
+        TheUser.setDefaultCup(defaultCup);
     }
 
 
