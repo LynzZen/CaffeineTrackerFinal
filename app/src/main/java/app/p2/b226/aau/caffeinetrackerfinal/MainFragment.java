@@ -1,6 +1,7 @@
 package app.p2.b226.aau.caffeinetrackerfinal;
 
 import android.app.Fragment;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
@@ -41,11 +42,8 @@ public class MainFragment extends Fragment {
         theButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                theUser.setCaffeineInSystem(theUser.getCaffeineInSystem()+theUser.getDefaultCup());
-                int goalInCups = Math.round(theUser.getGoalInMg()/theUser.getDefaultCup());
-                theTextView.setText("The Goal is: " + goalInCups + " cups, and the amount of caffeine in your system is: "
-                       + theUser.getCaffeineInSystem()+ ", which is equlivant to: " +
-                        Math.round(theUser.getCaffeineInSystem()/theUser.getDefaultCup()) + " cups");
+                Intent i = new Intent(getActivity(),Dated.class);
+                startActivity(i);
             }
         });
 

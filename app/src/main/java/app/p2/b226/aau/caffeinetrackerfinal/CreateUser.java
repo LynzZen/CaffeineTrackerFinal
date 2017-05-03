@@ -12,8 +12,12 @@ import android.widget.Toast;
 import java.io.Serializable;
 
 public class CreateUser extends AppCompatActivity {
-    User theUser;
 
+    //THIS ACTIVITY IS FOR CREATING THE USER. THIS WILL ONLY RUN THE FIRST TIME THE APP IS OPENED!
+
+
+    //Boilerplate code
+    User theUser;
     EditText nameEdit;
     Switch smokeSwitch;
     EditText goal;
@@ -23,7 +27,6 @@ public class CreateUser extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_user);
-
         nameEdit = (EditText) findViewById(R.id.EditName);
         goal = (EditText) findViewById(R.id.goalEdit);
         smokeSwitch = (Switch) findViewById(R.id.SmokingSwitch);
@@ -49,6 +52,5 @@ public class CreateUser extends AppCompatActivity {
 
     public void createUser(String name, int goal, boolean isSmoking){
         theUser = new User(name,goal,isSmoking, 200);
-       // Toast.makeText(this, theUser.getGoalInMg()+"", Toast.LENGTH_LONG).show();
     }
 }
