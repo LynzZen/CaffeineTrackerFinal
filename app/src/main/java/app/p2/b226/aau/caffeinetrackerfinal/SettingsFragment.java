@@ -106,7 +106,7 @@ public class SettingsFragment extends Fragment {
                 int newDefaultCup = Integer.parseInt(defaultCupEdit.getText().toString());
                 int newGoal = Integer.parseInt(goalEdit.getText().toString());
 
-                ((MainActivity)getActivity()).updateUser(newName,smoke,newGoal,defaultCup);
+                ((MainActivity)getActivity()).updateUser(newName,smoke,newGoal,newDefaultCup);
                 Toast.makeText(getActivity(), "User Updated!", Toast.LENGTH_SHORT).show();
             }
         });

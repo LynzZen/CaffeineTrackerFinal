@@ -14,6 +14,14 @@ public class MainFragment extends Fragment {
 
     TextView theTextView;
     Button theButton;
+    User theUser;
+
+    public MainFragment(){
+
+    }
+    public MainFragment(User theUser){
+        this.theUser = theUser;
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -23,28 +31,27 @@ public class MainFragment extends Fragment {
 
     }
 
+
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        theTextView = (TextView) view.findViewById(R.id.Heine);
-        theButton = (Button) view.findViewById(R.id.theButton);
-        theButton.setOnClickListener(mListener);
+        theTextView = (TextView) view.findViewById(R.id.display_caffeine);
+        theTextView.setText(theUser.getCaffeineInSystem()+"");
+        theButton = (Button) view.findViewById(R.id.add_cup);
+        theButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                theUser.setCaffeineInSystem(theUser.getCaffeineInSystem()+theUser.getDefaultCup());
+                int goalInCups = Math.round(theUser.getGoalInMg()/theUser.getDefaultCup());
+                theTextView.setText("The Goal is: " + goalInCups + " cups, and the amount of caffeine in your system is: "
+                       + theUser.getCaffeineInSystem()+ ", which is equlivant to: " +
+                        Math.round(theUser.getCaffeineInSystem()/theUser.getDefaultCup()) + " cups");
+            }
+        });
+
+
+
     }
 
-    View.OnClickListener mListener = new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
-            String theName = ((MainActivity)getActivity()).TheUser.getName();
-            int goal = ((MainActivity)getActivity()).TheUser.getGoalInMg();
-            boolean isSmoking = ((MainActivity)getActivity()).TheUser.isSmoker();
-            String tempTxt;
-            if (isSmoking){
-                tempTxt = "is smoking";
-            } else {
-                tempTxt = "is not smoking";
-            }
 
-            theTextView.setText("Name: " + theName + ". Goal: " + goal + ". " + tempTxt);
-        }
-    };
 }

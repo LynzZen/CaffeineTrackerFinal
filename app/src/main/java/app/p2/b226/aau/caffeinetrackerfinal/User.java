@@ -8,7 +8,6 @@ public class User implements Serializable {
     boolean isSmoker;
     int defaultCup;
 
-    int mgInPersonalCup;
     int caffeineInSystem;
 
     public User(String name, int goalInMg, boolean isSmoker, int defaultCup) {
@@ -16,7 +15,16 @@ public class User implements Serializable {
         this.goal = goalInMg;
         this.isSmoker = isSmoker;
         this.defaultCup = defaultCup;
+        caffeineInSystem = 0;
 
+    }
+
+    public int getCaffeineInSystem() {
+        return caffeineInSystem;
+    }
+
+    public void setCaffeineInSystem(int caffeineInSystem) {
+        this.caffeineInSystem = caffeineInSystem;
     }
 
     public int getDefaultCup() {

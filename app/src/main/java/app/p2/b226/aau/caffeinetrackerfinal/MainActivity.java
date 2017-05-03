@@ -27,7 +27,10 @@ public class MainActivity extends AppCompatActivity {
 
             switch (item.getItemId()) {
                 case R.id.navigation_home:
-                    changingFragment(new MainFragment());
+
+                    if (TheUser != null) {
+                        changingFragment(new MainFragment(TheUser));
+                    }
                     return true;
                 case R.id.navigation_dashboard:
                     changingFragment(new VisualizationFragment());
@@ -60,7 +63,7 @@ public class MainActivity extends AppCompatActivity {
         TheUser = (User) bundle.getSerializable("Auser");
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
-        changingFragment(new MainFragment());
+        changingFragment(new MainFragment(TheUser));
 
     }
 
