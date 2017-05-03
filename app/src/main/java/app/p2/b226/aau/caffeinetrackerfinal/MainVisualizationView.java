@@ -17,7 +17,10 @@ public class MainVisualizationView extends View {
     private Paint paintView2 = new Paint();
 
     RectF rectF;
-    static int i;
+    static int CaffeineIntaken;
+    static float CupDegrees;
+
+
 
 
     public MainVisualizationView(Context context) {
@@ -35,7 +38,6 @@ public class MainVisualizationView extends View {
         init(attrs,defStyleAttr);
     }
     private void init(AttributeSet attrs, int defStyleAttr){
-
         paintView.setStyle(Paint.Style.STROKE);
         paintView.setStrokeWidth(10);
         paintView.setAntiAlias(true);
@@ -47,19 +49,24 @@ public class MainVisualizationView extends View {
         rectF = new RectF();
 
     }
+    //Draws on the
     @Override
     public void onDraw(Canvas canvas){
         super.onDraw(canvas);
+        //This caluculates the factor between milligrams and degress
+        //The 600 here should be the goal at some point to make it work right.
+        double Factor = (double)203/(double)600;
+        CupDegrees = (float)(Factor*CaffeineIntaken);
 
-
-
+        //Draws the circles and arc
         paintView.setColor(Color.BLACK);
         rectF.set(getWidth()/2-270,350-270,getWidth()/2+270,350+270);
+
         canvas.drawCircle(getWidth()/2,350,270,paintView);
-        canvas.drawArc (rectF, 157, i, false, paintView2);
+        canvas.drawArc (rectF, 157, CupDegrees, false, paintView2);
         canvas.drawCircle(getWidth()/2,570,270,paintView);
         canvas.drawCircle(getWidth()/2+270,350,10,paintView2);
-
         invalidate();
+
     }
 }
