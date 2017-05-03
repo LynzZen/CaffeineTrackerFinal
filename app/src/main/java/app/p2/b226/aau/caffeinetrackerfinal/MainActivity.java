@@ -58,9 +58,15 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
+
         Intent intent = this.getIntent();
         Bundle bundle = intent.getExtras();
-        TheUser = (User) bundle.getSerializable("Auser");
+
+        if (bundle != null) {
+            TheUser = (User) bundle.getSerializable("Auser");
+        }
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
         changingFragment(new MainFragment(TheUser));

@@ -1,5 +1,6 @@
 package app.p2.b226.aau.caffeinetrackerfinal;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -82,7 +83,9 @@ public class Dated extends AppCompatActivity {
         dateTimeFragment.setOnButtonClickListener(new SwitchDateTimeDialogFragment.OnButtonClickListener() {
             @Override
             public void onPositiveButtonClick(Date date) {
+
                 textView.setText(myDateFormat.format(date));
+                startNext();
             }
 
             @Override
@@ -108,6 +111,11 @@ public class Dated extends AppCompatActivity {
         // Save the current textView
         savedInstanceState.putCharSequence(STATE_TEXTVIEW, textView.getText());
         super.onSaveInstanceState(savedInstanceState);
+    }
+
+    public void startNext(){
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
     }
 }
 
