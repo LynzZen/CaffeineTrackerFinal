@@ -8,6 +8,7 @@ import android.graphics.RectF;
 import android.util.AttributeSet;
 import android.view.View;
 
+
 /**
  * Created by Lynge on 03/05/2017.
  */
@@ -59,6 +60,10 @@ public class MainVisualizationView extends View {
         double Factor = (double)203/(double)CaffeineGoal;
         CupDegrees = (float)(Factor*CaffeineIntaken);
 
+        float x =(float)((getWidth()/2)+270*(Math.cos(Math.toRadians(CupDegrees+157))));
+        float y =(float)(350+270*(Math.sin(Math.toRadians(CupDegrees+157))));
+
+
         //Draws the circles and arc
         paintView.setColor(Color.BLACK);
         rectF.set(getWidth()/2-270,350-270,getWidth()/2+270,350+270);
@@ -67,6 +72,7 @@ public class MainVisualizationView extends View {
         canvas.drawArc (rectF, 157, CupDegrees, false, paintView2);
         canvas.drawCircle(getWidth()/2,570,270,paintView);
         canvas.drawCircle(getWidth()/2+270,350,10,paintView2);
+        canvas.drawCircle(x,y,10,paintView2);
         invalidate();
 
     }
