@@ -22,6 +22,10 @@ public class MainVisualizationView extends View {
     static int CaffeineGoal;
     static float CupDegrees;
 
+    //FOR TEST!!!
+    static int[] Tracks;
+
+
 
 
 
@@ -49,19 +53,23 @@ public class MainVisualizationView extends View {
         paintView2.setStrokeWidth(20);
         paintView2.setAntiAlias(true);
         rectF = new RectF();
+        Tracks = new int[4];
+        Tracks[0] = 100;
+        Tracks[1] = 100;
+        Tracks[2] = 150;
+        Tracks[3] = 100;
+
 
     }
     //Draws on the
     @Override
     public void onDraw(Canvas canvas){
         super.onDraw(canvas);
-        //This caluculates the factor between milligrams and degress
+        //This caluculates the factor between milligrams and degress according to the goal
 
         double Factor = (double)203/(double)CaffeineGoal;
         CupDegrees = (float)(Factor*CaffeineIntaken);
 
-        float x =(float)((getWidth()/2)+270*(Math.cos(Math.toRadians(CupDegrees+157))));
-        float y =(float)(350+270*(Math.sin(Math.toRadians(CupDegrees+157))));
 
 
         //Draws the circles and arc
@@ -72,7 +80,20 @@ public class MainVisualizationView extends View {
         canvas.drawArc (rectF, 157, CupDegrees, false, paintView2);
         canvas.drawCircle(getWidth()/2,570,270,paintView);
         canvas.drawCircle(getWidth()/2+270,350,10,paintView2);
-        canvas.drawCircle(x,y,10,paintView2);
+        paintView2.setColor(Color.BLACK);
+
+        //Makes a dot for each tracking
+        //Should have an array with all the trackings now it's running on a premade array!
+        int Last = 0;
+        for(int k =0;k<Tracks.length;k++){
+            CupDegrees = (float)(Factor*(Tracks[k]+Last));
+            float x =(float)((getWidth()/2)+270*(Math.cos(Math.toRadians(CupDegrees+157))));
+            float y =(float)(350+270*(Math.sin(Math.toRadians(CupDegrees+157))));
+            canvas.drawCircle(x,y,10,paintView2);
+            Last+=Tracks[k];
+
+        }
+
         invalidate();
 
     }
