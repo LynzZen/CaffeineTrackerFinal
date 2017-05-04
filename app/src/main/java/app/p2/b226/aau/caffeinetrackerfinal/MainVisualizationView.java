@@ -16,7 +16,7 @@ import android.view.View;
 public class MainVisualizationView extends View {
     private Paint paintView = new Paint();
     private Paint paintView2 = new Paint();
-
+    static int YCenter = 500;
     RectF rectF;
     static int CaffeineIntaken;
     static int CaffeineGoal;
@@ -74,24 +74,32 @@ public class MainVisualizationView extends View {
 
         //Draws the circles and arc
         paintView.setColor(Color.BLACK);
-        rectF.set(getWidth()/2-270,350-270,getWidth()/2+270,350+270);
+        rectF.set(getWidth()/2-270,YCenter-270,getWidth()/2+270,YCenter+270);
 
-        canvas.drawCircle(getWidth()/2,350,270,paintView);
+        //First big circle
+        canvas.drawCircle(getWidth()/2,YCenter,270,paintView);
+
         canvas.drawArc (rectF, 157, CupDegrees, false, paintView2);
-        canvas.drawCircle(getWidth()/2,570,270,paintView);
-        canvas.drawCircle(getWidth()/2+270,350,10,paintView2);
+
+        //Second big circle
+        canvas.drawCircle(getWidth()/2,YCenter+270,270,paintView);
+
+        //Small circle at the end of the arc
+        canvas.drawCircle(getWidth()/2+270,YCenter,10,paintView2);
+
         paintView2.setColor(Color.BLACK);
+
 
         //Makes a dot for each tracking
         //Should have an array with all the trackings now it's running on a premade array!
         int Last = 0;
-        for(int k =0;k<Tracks.length;k++){
-            CupDegrees = (float)(Factor*(Tracks[k]+Last));
-            float x =(float)((getWidth()/2)+270*(Math.cos(Math.toRadians(CupDegrees+157))));
-            float y =(float)(350+270*(Math.sin(Math.toRadians(CupDegrees+157))));
-            canvas.drawCircle(x,y,10,paintView2);
-            Last+=Tracks[k];
 
+        for(int k:Tracks){
+            CupDegrees = (float)(Factor*(k+Last));
+            float x =(float)((getWidth()/2)+270*(Math.cos(Math.toRadians(CupDegrees+157))));
+            float y =(float)(YCenter+270*(Math.sin(Math.toRadians(CupDegrees+157))));
+            canvas.drawCircle(x,y,10,paintView2);
+            Last+=k;
         }
 
         invalidate();

@@ -6,4 +6,44 @@
     tools:context="app.p2.b226.aau.caffeinetrackerfinal.VisualizationFragment">
 
 
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="15dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginStart="45dp"
+        android:text="Week" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/button3"
+        android:layout_alignBottom="@+id/button3"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginEnd="45dp"
+        android:layout_marginRight="50dp"
+        android:text="Month" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="500dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true">
+
+    </RelativeLayout>
+
+    <app.p2.b226.aau.caffeinetrackerfinal.VisualizationView
+        android:layout_height="match_parent"
+        android:layout_width="match_parent" />
+
+
 </RelativeLayout>
